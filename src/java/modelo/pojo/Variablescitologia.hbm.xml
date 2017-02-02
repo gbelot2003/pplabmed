@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/02/2017 08:05:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Variablescitologia" table="variablescitologia" schema="public" optimistic-lock="version">
+        <id name="idtblvariablescito" type="int">
+            <column name="idtblvariablescito" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="citologia" class="modelo.pojo.Citologia" fetch="select">
+            <column name="idtblcito" not-null="true" />
+        </many-to-one>
+        <property name="nombrevar" type="string">
+            <column name="nombrevar" not-null="true" />
+        </property>
+        <property name="valorvariable" type="string">
+            <column name="valorvariable" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/02/2017 08:05:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Dispositivosmoviles" table="dispositivosmoviles" schema="public" optimistic-lock="version">
+        <id name="iddispositivosmoviles" type="int">
+            <column name="iddispositivosmoviles" />
+            <generator class="foreign">
+                <param name="property">usuarios</param>
+            </generator>
+        </id>
+        <one-to-one name="usuarios" class="modelo.pojo.Usuarios" constrained="true"></one-to-one>
+        <property name="keydispositivo" type="string">
+            <column name="keydispositivo" not-null="true" />
+        </property>
+        <property name="idtblusuarios" type="int">
+            <column name="idtblusuarios" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

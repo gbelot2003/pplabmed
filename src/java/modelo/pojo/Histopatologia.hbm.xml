@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/02/2017 08:05:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Histopatologia" table="histopatologia" schema="public" optimistic-lock="version">
+        <id name="idtblhisto" type="int">
+            <column name="idtblhisto" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="camposhansa" class="modelo.pojo.Camposhansa" fetch="select">
+            <column name="idtblhansa" />
+        </many-to-one>
+        <many-to-one name="firmasmedicos" class="modelo.pojo.Firmasmedicos" fetch="select">
+            <column name="idtblfirma1" />
+        </many-to-one>
+        <property name="diagnosticoclinico" type="string">
+            <column name="diagnosticoclinico" />
+        </property>
+        <property name="muestra" type="string">
+            <column name="muestra" />
+        </property>
+        <property name="mor1" type="string">
+            <column name="mor1" length="20" />
+        </property>
+        <property name="mor2" type="string">
+            <column name="mor2" length="20" />
+        </property>
+        <property name="fechainforme" type="date">
+            <column name="fechainforme" length="13" />
+        </property>
+        <property name="fechabiopsia" type="date">
+            <column name="fechabiopsia" length="13" />
+        </property>
+        <property name="idtblfirma2" type="java.lang.Integer">
+            <column name="idtblfirma2" />
+        </property>
+        <property name="topog" type="string">
+            <column name="topog" length="100" />
+        </property>
+        <property name="fechamuestra" type="date">
+            <column name="fechamuestra" length="13" />
+        </property>
+        <property name="descmacro" type="string">
+            <column name="descmacro" />
+        </property>
+        <property name="descmicro" type="string">
+            <column name="descmicro" />
+        </property>
+        <property name="diagnostico" type="string">
+            <column name="diagnostico" />
+        </property>
+        <property name="codigohisto" type="string">
+            <column name="codigohisto" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

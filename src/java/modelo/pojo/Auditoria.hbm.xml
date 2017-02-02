@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/02/2017 08:05:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Auditoria" table="auditoria" schema="public" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreTabla" type="string">
+            <column name="nombre_tabla" />
+        </property>
+        <property name="idCampo" type="java.lang.Long">
+            <column name="id_campo" />
+        </property>
+        <property name="nombreCampo" type="string">
+            <column name="nombre_campo" />
+        </property>
+        <property name="valorAnterior" type="string">
+            <column name="valor_anterior" />
+        </property>
+        <property name="valorNuevo" type="string">
+            <column name="valor_nuevo" />
+        </property>
+        <property name="fechaOperacion" type="timestamp">
+            <column name="fecha_operacion" length="35" />
+        </property>
+        <property name="tipoOperacion" type="java.lang.Character">
+            <column name="tipo_operacion" length="1">
+                <comment>i = insert ; u = update</comment>
+            </column>
+        </property>
+        <property name="ip" type="serializable">
+            <column name="ip" />
+        </property>
+    </class>
+</hibernate-mapping>

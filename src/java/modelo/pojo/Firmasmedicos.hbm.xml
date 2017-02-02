@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/02/2017 08:05:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Firmasmedicos" table="firmasmedicos" schema="public" optimistic-lock="version">
+        <id name="idtblfirmamed" type="int">
+            <column name="idtblfirmamed" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" not-null="true" />
+        </property>
+        <property name="codigo" type="string">
+            <column name="codigo" not-null="true" />
+        </property>
+        <property name="estado" type="boolean">
+            <column name="estado" not-null="true" />
+        </property>
+        <set name="citologias" table="citologia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtblfirma1" />
+            </key>
+            <one-to-many class="modelo.pojo.Citologia" />
+        </set>
+        <set name="histopatologias" table="histopatologia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtblfirma1" />
+            </key>
+            <one-to-many class="modelo.pojo.Histopatologia" />
+        </set>
+    </class>
+</hibernate-mapping>

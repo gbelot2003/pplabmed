@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/02/2017 08:05:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Perfiles" table="perfiles" schema="public" optimistic-lock="version">
+        <id name="idtblperfiles" type="int">
+            <column name="idtblperfiles" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombreperfil" type="string">
+            <column name="nombreperfil" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" />
+        </property>
+        <property name="estado" type="java.lang.Boolean">
+            <column name="estado" />
+        </property>
+        <set name="usuariosporperfils" table="usuariosporperfil" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtblperfiles" not-null="true" />
+            </key>
+            <one-to-many class="modelo.pojo.Usuariosporperfil" />
+        </set>
+        <set name="perfilporpermisos" table="perfilporpermiso" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtblperfil" not-null="true" />
+            </key>
+            <one-to-many class="modelo.pojo.Perfilporpermiso" />
+        </set>
+    </class>
+</hibernate-mapping>

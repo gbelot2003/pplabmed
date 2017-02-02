@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/02/2017 08:05:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Citologia" table="citologia" schema="public" optimistic-lock="version">
+        <id name="idtblcito" type="int">
+            <column name="idtblcito" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="camposhansa" class="modelo.pojo.Camposhansa" fetch="select">
+            <column name="idtblhansa" />
+        </many-to-one>
+        <many-to-one name="catalogocitologias" class="modelo.pojo.Catalogocitologias" fetch="select">
+            <column name="idtblcatcito" />
+        </many-to-one>
+        <many-to-one name="firmasmedicos" class="modelo.pojo.Firmasmedicos" fetch="select">
+            <column name="idtblfirma1" />
+        </many-to-one>
+        <property name="deteccioncancer" type="java.lang.Boolean">
+            <column name="deteccioncancer" />
+        </property>
+        <property name="indicemaduracion" type="java.lang.Boolean">
+            <column name="indicemaduracion" />
+        </property>
+        <property name="otrosindices" type="string">
+            <column name="otrosindices" />
+        </property>
+        <property name="diagnosticoclinico" type="string">
+            <column name="diagnosticoclinico" />
+        </property>
+        <property name="fur" type="string">
+            <column name="fur" />
+        </property>
+        <property name="fup" type="string">
+            <column name="fup" />
+        </property>
+        <property name="gravidad" type="string">
+            <column name="gravidad" />
+        </property>
+        <property name="para" type="string">
+            <column name="para" />
+        </property>
+        <property name="abortos" type="java.lang.Integer">
+            <column name="abortos" />
+        </property>
+        <property name="idtblfirma2" type="java.lang.Integer">
+            <column name="idtblfirma2" />
+        </property>
+        <property name="otros" type="string">
+            <column name="otros" />
+        </property>
+        <property name="fechainforme" type="date">
+            <column name="fechainforme" length="13" />
+        </property>
+        <property name="fechamuestra" type="date">
+            <column name="fechamuestra" length="13" />
+        </property>
+        <property name="informe" type="string">
+            <column name="informe" />
+        </property>
+        <set name="variablescitologias" table="variablescitologia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtblcito" not-null="true" />
+            </key>
+            <one-to-many class="modelo.pojo.Variablescitologia" />
+        </set>
+    </class>
+</hibernate-mapping>

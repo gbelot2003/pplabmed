@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/02/2017 08:05:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Secuencetbl" table="secuencetbl" schema="public" optimistic-lock="version">
+        <id name="alphaNumAutoIncrementCol" type="string">
+            <column name="alpha_num_auto_increment_col" />
+            <generator class="assigned" />
+        </id>
+        <property name="sampleDataCol" type="string">
+            <column name="sample_data_col" />
+        </property>
+    </class>
+</hibernate-mapping>

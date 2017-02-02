@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 1/02/2017 08:05:29 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.pojo.Usuarios" table="usuarios" schema="public" optimistic-lock="version">
+        <id name="idtblusuarios" type="int">
+            <column name="idtblusuarios" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="area" class="modelo.pojo.Area" fetch="select">
+            <column name="idtblarea" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" not-null="true" />
+        </property>
+        <property name="estado" type="boolean">
+            <column name="estado" not-null="true" />
+        </property>
+        <property name="accesomovil" type="boolean">
+            <column name="accesomovil" not-null="true" />
+        </property>
+        <property name="accesoweb" type="boolean">
+            <column name="accesoweb" not-null="true" />
+        </property>
+        <one-to-one name="dispositivosmoviles" class="modelo.pojo.Dispositivosmoviles"></one-to-one>
+        <set name="usuariosporperfils" table="usuariosporperfil" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idtblusuario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.pojo.Usuariosporperfil" />
+        </set>
+    </class>
+</hibernate-mapping>
